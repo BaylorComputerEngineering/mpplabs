@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\title{Lab 0}
+\author{Keith Evan Schubert}
+
+\begin{document}
+\maketitle
+
+\section{Objective}
+The purpose of this lab is to check your environment settings and to make sure you can compile and run CUDA programs on the environment you’ll be using throughout the course.  In this lab, you will:
+\begin{itemize}
+\item Get a copy of the assignment package and walk through the directory structure
+\item Set up the environment for executing the assignments
+\item Test the environment with a simple program that just queries what GPU device is attached
+\end{itemize}
+
+\section{Activity}
+
+\begin{enumerate}
+\item Login to kodiak.  On a Mac or Linux system open a terminal and type \verb1ssh kodiak.baylor.edu1, then enter your login information.  On a Windows system, launch a secure shell app (in the Network Apps folder in the start menu) then use connect (sometimes called quick connect).
+\item Now that you are in.  Type \verb1mkdir code1 then \verb1cd code1.  You will now clone the lab from github by typing \\ \verb1git clone https://github.com/BaylorComputerEngineering/mpplabs.git1
+\item Now type \verb1cd mpplabs1 and \verb1ls1.  We want to use the code in lab 0, so \verb1cd lab0*1 (note star is a regular expression that stands for anything).
+\item We will now make the executable by typing \verb1make1.
+\item First trying running the executable on the login node (generally don't do this): \verb1./device-query1.  It will tell you there is no cuda device, since the login node of kodiak doesn't have any gpus.
+\item We will now submit to one of the gpu queues.  
+	\begin{enumerate}
+	\item First try kodiak's gpus by \verb1qsub -q gpu device-query.sh1.  It will give you two output files, one with a .e in the middle (error output) and one with .o in the middle (standard output).  Let's look at the standard output \verb1cat *.o*1.
+	\item Repeat it for Tardis (my cluster connected to kodiak) \\ \verb1qsub -q tardis device-query.sh1, and examine the output.
+	\end{enumerate}	 
+\end{enumerate}
+
+\section{Turn in}
+Copy the output from both kodiak and tardis and put them in a single pdf.  This is very easy to do in \LaTeX\ .  Upload this to the course Canvas site.
+
+
+\section{Further Reading}
+In the class Canvas, I have an announcement with Kodiak References.  The first two are essentially the same as the last two - I presume this is a rename in progress, but I included both, since I don't know which will continue.  They are very easy to read and will get you up to speed on using Kodiak.
+
+\end{document}
