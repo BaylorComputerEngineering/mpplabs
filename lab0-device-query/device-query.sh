@@ -1,1 +1,1 @@
-~/code/mpplabs/lab0-device-query/device-queryc
+~/code/mpplabs/lab0-device-query/device-query
