@@ -51,15 +51,15 @@ int main(int argc, char**argv) {
 
     //INSERT CODE HERE
     float* A_d;
-    cuda_ret = cudaMalloc((void**) &A_d, sizeof(float)*n);
+    cuda_ret = 
 	if(cuda_ret != cudaSuccess) FATAL("Unable to allocate device memory");
 
     float* B_d;
-    cuda_ret = cudaMalloc((void**) &B_d, sizeof(float)*n);
+    cuda_ret = 
 	if(cuda_ret != cudaSuccess) FATAL("Unable to allocate device memory");
 
     float* C_d;
-    cuda_ret = cudaMalloc((void**) &C_d, sizeof(float)*n);
+    cuda_ret = 
 	if(cuda_ret != cudaSuccess) FATAL("Unable to allocate device memory");
 
     cudaDeviceSynchronize();
@@ -71,10 +71,10 @@ int main(int argc, char**argv) {
     startTime(&timer);
 
     //INSERT CODE HERE
-    cuda_ret = cudaMemcpy(A_d, A_h, sizeof(float)*n, cudaMemcpyHostToDevice);
+    cuda_ret = 
 	if(cuda_ret != cudaSuccess) FATAL("Unable to copy memory to device");
 
-    cuda_ret = cudaMemcpy(B_d, B_h, sizeof(float)*n, cudaMemcpyHostToDevice);
+    cuda_ret = 
 	if(cuda_ret != cudaSuccess) FATAL("Unable to copy memory to device");
 
     cudaDeviceSynchronize();
@@ -86,10 +86,10 @@ int main(int argc, char**argv) {
     startTime(&timer);
 
     //INSERT CODE HERE
-    const unsigned int THREADS_PER_BLOCK = 512;
-    const unsigned int numBlocks = (n - 1)/THREADS_PER_BLOCK + 1;
+    const unsigned int THREADS_PER_BLOCK = 
+    const unsigned int numBlocks = 
     dim3 gridDim(numBlocks, 1, 1), blockDim(THREADS_PER_BLOCK, 1, 1);
-    vecAddKernel<<< gridDim, blockDim >>> (A_d, B_d, C_d, n);
+    
 
     cuda_ret = cudaDeviceSynchronize();
 	if(cuda_ret != cudaSuccess) FATAL("Unable to launch kernel");
@@ -101,7 +101,7 @@ int main(int argc, char**argv) {
     startTime(&timer);
 
     //INSERT CODE HERE
-    cuda_ret = cudaMemcpy(C_h, C_d, sizeof(float)*n, cudaMemcpyDeviceToHost);
+    
 	if(cuda_ret != cudaSuccess) FATAL("Unable to copy memory from device");
 
     cudaDeviceSynchronize();
