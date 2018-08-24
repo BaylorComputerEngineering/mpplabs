@@ -40,7 +40,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// includes, project
+// includes, project originally used cutil prior to cuda 5, switched to helper after
 //#include <cutil_inline.h>//used up until cuda 4.x
 #include <helper_cuda.h>//used from cuda 5.x
 
