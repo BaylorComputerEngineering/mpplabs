@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\title{Lab 2}
+\author{Keith Evan Schubert}
+
+\begin{document}
+\maketitle
+
+\section{Objective}
+The purpose of this lab is to implement a basic dense matrix multiplication routine.
+
+\section{Activity}
+
+\begin{enumerate}
+\item Login to kodiak.  cd to your mpplabs directory and type \verb1git pull1.
+\item Edit the file \verb1<lab-directory>/main.cu1 to implement the following where indicated:
+	\begin{enumerate}
+	\item Allocate device memory
+	\item Copy host memory to device
+	\item Copy results from device to host
+	\item Free device memory
+	\end{enumerate}	 
+\item Edit the file \verb1<lab-directory>/kernel.cu1 to initialize the thread block and kernel grid dimensions and invoke the CUDA kernel, and to implement the matrix multiplication kernel code..
+\item Compile and test your code.  
+\begin{verbatim}
+	cd <lab-directory>
+	make
+	nano sgemm.sh  # add sgemm commands per below
+	    ~/<lab-directory>/sgemm			# Uses the default matrix sizes
+	    ~/<lab-directory>/sgemm <m>			# Uses square m x m matrices
+	    ~/<lab-directory>/sgemm <m> <k> <n>	# Uses (m x k) and 
+	                                  # (k x n) input matrices
+	qsub -q tardis sgemm.sh
+\end{verbatim}
+\end{enumerate}
+
+\section{Turn in}
+Upload to the course Canvas site:
+\begin{enumerate}
+\item a report that includes :
+	\begin{enumerate}
+	\item the output 
+	\item analysis of the performance: Try the code for several sizes, square and non-square matrices, and matrices that fit and don't fit (neatly) in the blocks  How does the time change?  Does each part change the same?
+	\item answer section where you answer the following:
+		\begin{enumerate}
+		\item How many times is each element of each input matrix loaded during the execution of the kernel?
+		\item What is the memory-access to floating-point computation ratio in each thread? Consider multiplication and addition as separate operations, and ignore the global memory store at the end. Only count global memory loads towards your off-chip bandwidth.
+		\end{enumerate}
+	\end{enumerate}
+\item main.cu
+\item kernel.cu
+\end{enumerate} 
+The cuda code will be graded for completeness, correctness, handling of boundary, and style (5pts).  The report will be graded on readability, clarity, analysis, and solution to the questions (5pts).
+
+
+\section{Going Further}
+We will be looking at some areas soon, so think about how you could group the sections to minimize memory loads.
+
+\end{document}
