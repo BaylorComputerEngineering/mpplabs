@@ -1,0 +1,62 @@
+\documentclass{article}
+
+\title{Lab 3}
+\author{Keith Evan Schubert}
+
+\begin{document}
+\maketitle
+
+\section{Objective}
+The purpose of this lab is to implement a tiled dense matrix multiplication routine.
+
+\section{Activity}
+
+\begin{enumerate}
+\item Login to kodiak.  cd to your mpplabs directory and type \verb1git pull1.
+\item Edit the file \verb1<lab-directory>/main.cu1 to implement the following where indicated:
+	\begin{enumerate}
+	\item Allocate device memory
+	\item Copy host memory to device
+	\item Copy results from device to host
+	\item Free device memory
+	\end{enumerate}	 
+\item Edit the file \verb1<lab-directory>/kernel.cu1 to initialize the thread block and kernel grid dimensions and invoke the CUDA kernel, and to implement the tiled matrix multiplication kernel code..
+\item Compile and test your code.  
+\begin{verbatim}
+	cd <lab-directory>
+	make
+	nano sgemm-tiled.sh  # add sgemm-tiled commands per below
+	    ~/<lab-directory>/sgemm-tiled			# Uses the default matrix sizes
+	    ~/<lab-directory>/sgemm-tiled <m>			# Uses square m x m matrices
+	    ~/<lab-directory>/sgemm-tiled <m> <k> <n>	# Uses (m x k) and 
+	                                  # (k x n) input matrices
+	qsub -q tardis sgemm-tiled.sh
+\end{verbatim}
+\end{enumerate}
+
+\section{Turn in}
+Upload to the course Canvas site:
+\begin{enumerate}
+\item a report that includes :
+	\begin{enumerate}
+	\item the output 
+	\item analysis of the performance: Try the code for several sizes, square and non-square matrices, and matrices that fit and don't fit (neatly) in the blocks  How does the time change?  Does each part change the same?
+	\item answer section where you answer the following:
+		\begin{enumerate}
+		\item In your kernel implementation, how many threads can be simultaneously scheduled for execution on a GeForce GTX 280 GPU, which contains 30 streaming multiprocessors? Use:
+\begin{verbatim}
+	nvcc --ptxas-options="-v" kernel.cu
+\end{verbatim}
+to see the resource usage of your kernel (although compilation will fail, it will only do so after compiling the kernel and displaying the relevant information). Show your work.
+		\end{enumerate}
+	\end{enumerate}
+\item main.cu
+\item kernel.cu
+\end{enumerate} 
+The cuda code will be graded for completeness, correctness, handling of boundary, and style (5pts).  The report will be graded on readability, clarity, analysis, and solution to the questions (5pts).
+
+
+\section{Going Further}
+There should be a definite improvement in time but the complexity should stay the same (how it grows relatively).  Think about at what point matrix multiply in this fashion becomes too long.  1 day? 1 week?  Estimate the problem size.  
+
+\end{document}
