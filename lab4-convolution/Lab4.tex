@@ -1,0 +1,58 @@
+\documentclass{article}
+
+\title{Lab 4}
+\author{Keith Evan Schubert}
+
+\begin{document}
+\maketitle
+
+\section{Objective}
+The purpose of this lab is to get you more familiar with shared memory tiling techniques, handling complex boundary conditions, and using constant memory.
+
+\section{Activity}
+
+\begin{enumerate}
+\item Login to kodiak.  cd to your mpplabs directory and type \verb1git pull1.
+\item Examine the file \verb1<lab-directory>/main.cu1 to see new methods for constant memory and matrices to:
+	\begin{enumerate}
+	\item Allocate device memory
+	\item Copy host memory to device
+	\item Copy results from device to host
+	\item Free device memory
+	\end{enumerate}	 
+\item Edit the file \verb1<lab-directory>/kernel.cu1 to implement the shared memory tiled convolution. To handle halo cells, treat them as having a value of zero.
+\item Compile and test your code.  
+\begin{verbatim}
+	cd <lab-directory>
+	make
+	nano convolution.sh  # add convolution commands per below
+	    ~/<lab-directory>/convolution			# Uses the default image sizes
+	    ~/<lab-directory>/convolution <m>			# Uses square m x m image
+	    ~/<lab-directory>/convolution <m> <n>	# Uses (m x n) image
+	qsub -q tardis convolution.sh
+\end{verbatim}
+\end{enumerate}
+
+\section{Turn in}
+Upload to the course Canvas site:
+\begin{enumerate}
+\item a report that includes :
+	\begin{enumerate}
+	\item the output 
+	\item answer section where you answer the following:
+		\begin{enumerate}
+		\item What is the floating-point computation rate for the GPU kernel in this application? How does it scale with the size of the input image? To answer this question, try multiple sized inputs and calculate the rate for each using the timing measurements provided in the code. Make sure to justify your choice of input sizes.
+		\item	What percentage of time is spent as overhead for using the GPU? Consider as overhead: device memory allocation time and memory copy time to and from the device. Do not include problem setup time or result verification time in your calculations of overhead or total execution time. Try this with multiple input sizes and explain how the overhead scales with the size of your input?
+
+		\end{enumerate}
+	\end{enumerate}
+\item main.cu
+\item kernel.cu
+\end{enumerate} 
+The cuda code will be graded for completeness, correctness, handling of boundary, and style (5pts).  The report will be graded on readability, clarity, analysis, and solution to the questions (5pts).
+
+
+\section{Going Further}
+
+
+\end{document}
