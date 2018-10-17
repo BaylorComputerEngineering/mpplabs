@@ -1,0 +1,99 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.3.3)  17 OCT 2018 09:07
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**Lab5.tex
+(./Lab5.tex
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (./Lab5.aux)
+\openout1 = `Lab5.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 7.
+
+Overfull \hbox (15.83298pt too wide) in paragraph at lines 17--18
+[]\OT1/cmr/m/n/10 Examine the file [][]\OT1/cmtt/m/n/10 <lab-directory>/5.[]\OT
+1/cmr/m/n/10 -reduction/main.cu1 to see new method
+ []
+
+
+Overfull \hbox (52.74678pt too wide) in paragraph at lines 27--27
+ []\OT1/cmtt/m/n/10 ~/<lab-directory>/5.1-reduction/reduction # Uses the defaul
+t input size[] 
+ []
+
+
+Overfull \hbox (57.99673pt too wide) in paragraph at lines 27--27
+ []\OT1/cmtt/m/n/10 ~/<lab-directory>/5.1-reduction/reduction <m># Uses an inpu
+t with size m[] 
+ []
+
+[1
+
+{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (126.24614pt too wide) in paragraph at lines 47--47
+ []\OT1/cmtt/m/n/10 ~/<lab-directory>/5.2-prefix-scan/prefix-scan           # U
+ses the default input size[] 
+ []
+
+
+Overfull \hbox (78.99655pt too wide) in paragraph at lines 47--47
+ []\OT1/cmtt/m/n/10 ~/<lab-directory>/5.2-prefix-scan/prefix-scan <m># Uses an 
+input with size m[] 
+ []
+
+[2] (./Lab5.aux) ) 
+Here is how much of TeX's memory you used:
+ 230 strings out of 492982
+ 2452 string characters out of 6132528
+ 58251 words of memory out of 5000000
+ 3871 multiletter control sequences out of 15000+600000
+ 7755 words of font info for 28 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 23i,6n,17p,410b,254s stack positions out of 5000i,500n,10000p,200000b,80000s
+</Users/schubertk/Library/kestexmf/fonts/type1/public/amsfont
+s/cm/cmbx12.pfb></Users/schubertk/Library/kestexmf/fonts/type1/public/amsfonts/
+cm/cmr10.pfb></Users/schubertk/Library/kestexmf/fonts/type1/public/amsfonts/cm/
+cmr12.pfb></Users/schubertk/Library/kestexmf/fonts/type1/public/amsfonts/cm/cmr
+17.pfb></Users/schubertk/Library/kestexmf/fonts/type1/public/amsfonts/cm/cmtt10
+.pfb>
+Output written on Lab5.pdf (2 pages, 69724 bytes).
+PDF statistics:
+ 31 PDF objects out of 1000 (max. 8388607)
+ 21 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

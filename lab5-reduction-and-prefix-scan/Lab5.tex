@@ -1,0 +1,68 @@
+\documentclass{article}
+
+\title{Lab 5}
+\author{Keith Evan Schubert}
+
+\begin{document}
+\maketitle
+
+\section{Objective}
+This lab is divided into two parts. The objective of the first part is to get you familiar with the parallel reduction algorithm. The objective of the second part is to get you familiar with the parallel prefix scan algorithm. Please read Mark Harris's report ``Parallel Prefix Sum (Scan) with CUDA'' to learn the algorithmic background for the second part.
+
+\section{Activity}
+
+\subsection{Reduction}
+\begin{enumerate}
+\item Login to kodiak.  cd to your mpplabs directory and type \verb1git pull1.
+\item Examine the file \verb1<lab-directory>/5.1-reduction/main.cu1 to see new method cudaMemset.
+\item Edit the file \verb1<lab-directory>/5.1-reduction/kernel.cu1 where indicated to implement the device kernel code for the parallel reduction algorithm, assuming an input array of any size that fits in one kernel. You only have to produce the partial sums of each thread block for this part. We will sum up the partial results on the host.
+\item Compile and test your code.  
+\begin{verbatim}
+	cd <lab-directory>
+	make
+	nano reduction.sh  # add convolution commands per below
+	~/<lab-directory>/5.1-reduction/reduction			# Uses the default input size
+	~/<lab-directory>/5.1-reduction/reduction <m>		# Uses an input with size m
+	qsub -q tardis reduction.sh
+\end{verbatim}
+\item Answer these questions for reduction:
+	\begin{enumerate}
+	\item How many times does a single thread block synchronize to reduce its portion of the array to a single value?
+	\item What is the minimum, maximum, and average number of "real" operations that a thread will perform? ``Real'' operations are those that directly contribute to the final reduction value.
+	\end{enumerate}
+\end{enumerate}
+
+\subsection{Prefix Scan}
+ 
+ \begin{enumerate}
+ \item Edit the file \verb1<lab-directory>/5.2-prefix-scan/kernel.cu1 to implement host and device kernel code for the parallel prefix scan algorithm. The algorithm should be work-efficient. You are expected to support an input array of any size that fits in one kernel and are not allowed to add up partial sums on the CPU. In other words, you must use the hierarchal scan approach.
+\item Compile and test your code.
+\begin{verbatim}
+	cd ../5.2-prefix-scan
+	make
+	nano reduction.sh  # add convolution commands per below
+	~/<lab-directory>/5.2-prefix-scan/prefix-scan		         	# Uses the default input size
+	~/<lab-directory>/5.2-prefix-scan/prefix-scan <m>			# Uses an input with size m
+	qsub -q tardis prefix-scan.sh
+\end{verbatim}
+\item Answer the following question for prefix scan:
+	\begin{enumerate}
+	\item Describe how you handled arrays not a power of two in size and all performance-enhancing optimizations you added.
+	\end{enumerate}
+\end{enumerate}
+
+\section{Turn in}
+Upload to the course Canvas site:
+\begin{enumerate}
+\item a report that includes :
+	\begin{enumerate}
+	\item the output 
+	\item answer section where you answer the three questions above (two in reduction, one in prefix scan).
+	\end{enumerate}
+\item 5.1-reduction/kernel.cu
+\item 5.2-prefix-scan/kernel.cu
+\end{enumerate} 
+The cuda code will be graded for completeness, correctness, handling of boundary, and style (5pts).  The report will be graded on readability, clarity, analysis, and solution to the questions (5pts).
+
+
+\end{document}
