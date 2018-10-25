@@ -1,0 +1,53 @@
+\documentclass{article}
+
+\title{Lab 6}
+\author{Keith Evan Schubert}
+
+\begin{document}
+\maketitle
+
+\section{Objective}
+The purpose of this lab is to implement an efficient histogramming algorithm for an input array of integers within a given range. Each integer will map into a single bin, so the values will range from 0 to ({\#}bins - 1). The histogram bins will use unsigned 8-bit counters that must be saturated at 255 (i.e. no roll back to 0 allowed).
+
+\section{Activity}
+
+\begin{enumerate}
+\item Login to kodiak.  cd to your mpplabs directory and type \verb1git pull1.
+\item Edit the file \verb1<lab-directory>/lab6-histogram/kernel.cu1 to implement host and device kernel code for the histogram. Remember that the resulting 8-bit counters must be saturated at 255. Begin with a na\"{i}ve implementation then optimize it gradually. Keep a journal of every optimization you tried including the ones you abandoned because they limited you or worsened performance. This journal will be included in your report for this lab.
+\item Compile and test your code.  
+\begin{verbatim}
+	cd <lab-directory>
+	make
+	nano histogram.sh  # add histogram commands per below
+	# Uses default input size and default number of bins
+	~/<lab-directory>/histogram			
+	# Uses input of size m and default number of bins
+	~/<lab-directory>/histogram <m>		
+	# Uses input of size m and bin count of n
+	~/<lab-directory>/histogram <m> <n>	
+
+	qsub -q tardis histogram.sh
+\end{verbatim}
+\end{enumerate}
+
+\pagebreak
+\section{Turn in}
+Upload to the course Canvas site:
+\begin{enumerate}
+\item a report that includes :
+	\begin{enumerate}
+	\item the output 
+	\item optimization section where you describe all optimizations you tried regardless of whether you committed to them or abandoned them and whether they improved or hurt performance. For each optimization, include in your report:
+		\begin{itemize}
+		\item A description of the optimization
+		\item Any difficulties you had with completing the optimization correctly
+		\item The change in execution time after the optimization was applied
+		\item An explanation of why you think the optimization helped or hurt performance
+		\end{itemize}
+	\end{enumerate}
+\item kernel.cu
+\end{enumerate} 
+
+
+The cuda code will be graded for completeness, correctness, handling of boundary, and style (4pts).  The report will be graded on readability, clarity, analysis, and solution to the questions (4pts), and your optimization effort (What do you try? How thoughtful was it? etc.).
+\end{document}
